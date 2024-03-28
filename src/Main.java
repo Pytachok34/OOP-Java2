@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        Cipher CaeserCipher = new CaeserCipher("qwerty");
-        CaeserCipher.crypt();
-        CaeserCipher.showText();
-        CaeserCipher.encrypt();
-        CaeserCipher.showText();
-        MorseCipher morseCipher = new MorseCipher("qwerty");
+        Cipher caeserCipher = new CaeserCipher("qwerty");
+        caeserCipher.showText();
+        caeserCipher.crypt();
+        caeserCipher.showText();
+        caeserCipher.encrypt();
+        caeserCipher.showText();
+        MorseCipher morseCipher = new MorseCipher("---");
         morseCipher.crypt();
         morseCipher.showText();
         morseCipher.encrypt();

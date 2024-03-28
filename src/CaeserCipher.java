@@ -2,6 +2,7 @@ public class CaeserCipher extends Cipher {
     public CaeserCipher(String str)
     {
         super(str);
+        text.toLowerCase();
     }
     @Override
     public void crypt() {
@@ -9,7 +10,7 @@ public class CaeserCipher extends Cipher {
         {
             StringBuilder result = new StringBuilder();
             for (char character : text.toCharArray()) {
-                if (character != ' ') {
+                if (character != '.' && character !=' ' && character != '/') {
                     int originalAlphabetPosition = character - 'a';
                     int newAlphabetPosition = (originalAlphabetPosition + 3) % 26;
                     char newCharacter = (char) ('a' + newAlphabetPosition);
@@ -31,7 +32,7 @@ public class CaeserCipher extends Cipher {
         if (flag) {
             StringBuilder result = new StringBuilder();
             for (char character : text.toCharArray()) {
-                if (character != ' ') {
+                if (character != ' ' && character !='.' && character != '/') {
                     int encryptedAlphabetPosition = character - 'a';
                     int originalAlphabetPosition = (encryptedAlphabetPosition - 3 + 26) % 26;
                     char originalCharacter = (char) ('a' + originalAlphabetPosition);

@@ -4,6 +4,7 @@ public class MorseCipher extends Cipher{
     public MorseCipher(String str)
     {
         super(str);
+        text.toUpperCase();
     }
     private static final HashMap<Character, String> morseCodeMap = new HashMap<>();
     static {
@@ -41,7 +42,6 @@ public class MorseCipher extends Cipher{
         if(!flag)
         {
             StringBuilder encryptedText = new StringBuilder();
-            text = text.toUpperCase();
 
             for (int i = 0; i < text.length(); i++) {
                 char c = text.charAt(i);
@@ -51,7 +51,7 @@ public class MorseCipher extends Cipher{
                     encryptedText.append("/ ");
                 }
             }
-            System.out.println("Текст засшифрован");
+            System.out.println("Текст зашифрован");
             text = encryptedText.toString();
             flag = true;
         }
