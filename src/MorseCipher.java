@@ -38,7 +38,7 @@ public class MorseCipher extends Cipher{
     }
 
     @Override
-    public void crypt() {
+    public void encrypt() {
         if(!flag)
         {
             StringBuilder encryptedText = new StringBuilder();
@@ -58,7 +58,8 @@ public class MorseCipher extends Cipher{
         else
             System.out.println("Текст уже зашифрован");
     }
-    public void encrypt()
+    @Override
+    public void decrypt()
     {
         if (flag) {
             StringBuilder decryptedText = new StringBuilder();
@@ -73,7 +74,6 @@ public class MorseCipher extends Cipher{
                         }
                     }
                 }
-                decryptedText.append(" ");
             }
             System.out.println("Текст расшифрован");
             text = decryptedText.toString();

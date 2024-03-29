@@ -1,16 +1,15 @@
 public class CaeserCipher extends Cipher {
-    public CaeserCipher(String str)
-    {
+    public CaeserCipher(String str) {
         super(str);
         text.toLowerCase();
     }
+
     @Override
-    public void crypt() {
-        if(!flag)
-        {
+    public void encrypt() {
+        if (!flag) {
             StringBuilder result = new StringBuilder();
             for (char character : text.toCharArray()) {
-                if (character != '.' && character !=' ' && character != '/') {
+                if (character != '.' && character != ' ' && character != '/') {
                     int originalAlphabetPosition = character - 'a';
                     int newAlphabetPosition = (originalAlphabetPosition + 3) % 26;
                     char newCharacter = (char) ('a' + newAlphabetPosition);
@@ -22,17 +21,16 @@ public class CaeserCipher extends Cipher {
             System.out.println("Текст зашифрован");
             text = result.toString();
             flag = true;
-        }
-        else
+        } else
             System.out.println("Текст уже зашифрован");
     }
 
     @Override
-    public void encrypt() {
+    public void decrypt() {
         if (flag) {
             StringBuilder result = new StringBuilder();
             for (char character : text.toCharArray()) {
-                if (character != ' ' && character !='.' && character != '/') {
+                if (character != ' ' && character != '.' && character != '/') {
                     int encryptedAlphabetPosition = character - 'a';
                     int originalAlphabetPosition = (encryptedAlphabetPosition - 3 + 26) % 26;
                     char originalCharacter = (char) ('a' + originalAlphabetPosition);
